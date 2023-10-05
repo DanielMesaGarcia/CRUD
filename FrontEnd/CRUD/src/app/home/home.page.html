@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      CRUD
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">CRUD</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
+        href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Element</th>
+          <th>Monster</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let weapon of weapons">
+          <td>{{ weapon.id }}</td>
+          <td>{{ weapon.type }}</td>
+          <td>{{ weapon.element }}</td>
+          <td>{{ weapon.monster }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <form>
+      <ion-radio-group name="radio" [(ngModel)]="action">
+        <ion-radio value="Create">Create</ion-radio>
+        <ion-radio value="Delete">Delete</ion-radio>
+        <ion-radio value="Update">Update</ion-radio>
+      </ion-radio-group>
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input name="id" [(ngModel)]="id" placeholder="1,2,3..."></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-input name="type" [(ngModel)]="type" placeholder="Longsword, bow..."></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Element</ion-label>
+        <ion-input name="element" [(ngModel)]="element" placeholder="Fire, water..."></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Monster</ion-label>
+        <ion-input name="monster" [(ngModel)]="monster" placeholder="Jagras, Barioth..."></ion-input>
+    </ion-item>    
+      <ion-button (click)="onSubmit()">Submit</ion-button>
+    </form>
+    <ion-button (click)="refreshTable()">Refresh</ion-button>
+  </div>
+</ion-content>

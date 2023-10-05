@@ -27,7 +27,6 @@ public class WeaponServiceImpl implements IWeaponService{
 	@Override
 	public void post(Weapon weapon) {
 		weaponDao.save(weapon);
-		
 	}
 
 	@Override

@@ -17,11 +17,11 @@ public class Weapon implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private String Type;
+	private String type;
 	
-	private String Element;
+	private String element;
 	
-	private String Monster;
+	private String monster;
 
 	public long getid() {
 		return id;
@@ -31,36 +31,37 @@ public class Weapon implements Serializable {
 		this.id = id;
 	}
 
-	public String getType() {
-		return Type;
+	public String gettype() {
+		return type;
 	}
 
-	public void setType(String type) {
-		Type = type;
+	public void settype(String type) {
+		this.type = type;
 	}
 
-	public String getElement() {
-		return Element;
+	public String getelement() {
+		return element;
 	}
 
-	public void setElement(String element) {
-		Element = element;
+	public void setelement(String element) {
+		this.element = element;
 	}
 
-	public String getMonster() {
-		return Monster;
+	public String getmonster() {
+		return monster;
 	}
 
-	public void setMonster(String monster) {
-		Monster = monster;
+	public void setmonster(String monster) {
+		this.monster = monster;
 	}
 
 	public Weapon(String type, String element, String monster) {
-		super();
-		this.Type = type;
-		this.Element = element;
-		this.Monster = monster;
+	    super();
+	    this.type = type;
+	    this.element = element;
+	    this.monster = monster;
 	}
+
 	
 	public Weapon() {
 		
