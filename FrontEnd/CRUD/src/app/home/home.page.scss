@@ -1,11 +1,9 @@
 #container {
   text-align: center;
-
+  margin-top: 3vw;
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 #aviso {
@@ -51,10 +49,10 @@ th {
   color: #fff;
   font-weight: bold;
   padding: 10px;
-  text-align: left;
+  text-align:center;
   
 }
-
+;
 /* Estilo de las filas impares */
 tr:nth-child(odd) {
   background-color: #f2f2f2;
