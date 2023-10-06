@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      CRUD
+      Inventory
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,45 +20,39 @@
     <table class="responsive-table">
       <thead>
         <tr>
-          <th>ID</th>
           <th>Type</th>
           <th>Element</th>
           <th>Monster</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let weapon of weapons">
-          <td>{{ weapon.id }}</td>
+        <tr *ngFor="let weapon of weapons; let weaponIndex = index">
           <td>{{ weapon.type }}</td>
           <td>{{ weapon.element }}</td>
           <td>{{ weapon.monster }}</td>
+          <td>
+            <ion-button (click)="updWeapon(weaponIndex)">Update</ion-button>
+            <ion-button (click)="delWeapon(weapon.id)">Delete</ion-button>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div id="aviso">You are updating an entry, if you want to go back to create an entry, click reset</div>
+    <div id="error">Your data is not valid</div>
     <form>
-      <ion-radio-group name="radio" [(ngModel)]="action">
-        <ion-radio value="Create">Create</ion-radio>
-        <ion-radio value="Delete">Delete</ion-radio>
-        <ion-radio value="Update">Update</ion-radio>
-      </ion-radio-group>
       <ion-item>
-        <ion-label>ID</ion-label>
-        <ion-input name="id" [(ngModel)]="id" placeholder="1,2,3..."></ion-input>
+        <ion-input name="type" [(ngModel)]="type" placeholder="Longsword, bow..." label="Type"></ion-input>
+      </ion-item>
+      <ion-item> 
+        <ion-input name="element" [(ngModel)]="element" placeholder="Fire, water..." label="Element"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Type</ion-label>
-        <ion-input name="type" [(ngModel)]="type" placeholder="Longsword, bow..."></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Element</ion-label>
-        <ion-input name="element" [(ngModel)]="element" placeholder="Fire, water..."></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Monster</ion-label>
-        <ion-input name="monster" [(ngModel)]="monster" placeholder="Jagras, Barioth..."></ion-input>
-    </ion-item>    
+        <ion-input name="monster" [(ngModel)]="monster" placeholder="Jagras, Barioth..." label="Monster"></ion-input>
+      </ion-item>
       <ion-button (click)="onSubmit()">Submit</ion-button>
     </form>
     <ion-button (click)="refreshTable()">Refresh</ion-button>
+    <ion-button (click)="reset()">RESET</ion-button>
   </div>
 </ion-content>

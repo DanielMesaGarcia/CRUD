@@ -11,15 +11,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class WeaponService {
-  endpoint ="http://localhost:8080/weapons";
+  endpoint = "http://localhost:8080/weapons";
 
   constructor(private httpClient: HttpClient) { }
 
-  getWeapons(){
+  getWeapons() {
     return this.httpClient.get(this.endpoint);
   }
 
-  createWeapon(type: any, element: any, monster:any) {
+  createWeapon(type: any, element: any, monster: any) {
     let body = new URLSearchParams();
     body.append("type", type);
     body.append("element", element);
@@ -32,12 +32,11 @@ export class WeaponService {
     return this.httpClient.delete(`${this.endpoint}/${id}`);
   }
 
-  updateWeapon(id: number, weaponData: any) {
-    const { Type, Element, Monster } = weaponData; // Coincide con los nombres en el lado de Spring
-    return this.httpClient.put(`${this.endpoint}/${id}`, {
-      type: Type,
-      element: Element,
-      monster: Monster
-    });
+  updateWeapon(id: number, type: any, element: any, monster: any) {
+    let body = new URLSearchParams();
+    body.append("type", type);
+    body.append("element", element);
+    body.append("monster", monster);
+    return this.httpClient.put(`${this.endpoint}/${id}`, body, httpOptions);
   }
 }

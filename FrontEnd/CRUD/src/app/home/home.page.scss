@@ -8,6 +8,16 @@
   transform: translateY(-50%);
 }
 
+#aviso {
+  color: red;
+  display: none; /* Inicialmente oculto */
+}
+
+#error {
+  color: red;
+  display: none; /* Inicialmente oculto */
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
